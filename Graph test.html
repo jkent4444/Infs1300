@@ -3,7 +3,6 @@
  <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Flot Examples</title>
-    <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="../excanvas.min.js"></script><![endif]-->
     <script language="javascript" type="text/javascript" src="js/flot/jquery.js"></script>
     <script language="javascript" type="text/javascript" src="js/flot/jquery.flot.js"></script>
  </head>
@@ -19,16 +18,31 @@
 	       scaled.</p>
 
 		<script type="text/javascript">
-
-			$(function () {
-
-			    var AU = [[2009, 40479], [2010, 41102], [2011, 41318], [2012, 60000]];
+			$(function (){
+				var AU = [[2009, 40479], [2010, 41102], [2011, 41318], [2012, 60000]];
 
 			    // a null signifies separate line segments
-			    var NZ = [[2009, 27192], [2010, 27617], [2011, 27700], [2012, 50000]];
-			    
-			    $.plot($("#placeholder"), [ AU,NZ ]);
-			});
+			    var NZ = [[2009, 27192], [2010, 27617], [2011, 27700], [2012, 50000]]; 
+			    $.plot($("#placeholder"), [AU,NZ]);
+			 });
+			var code= "AU"
+			var all = ''
+
+			$(function () {
+				num = 0
+				$.each(GDP[code], function(key, value) {
+		 			all = all + ('[' + key + "," + value + '],');
+		 			num = num +1;
+		 			console.log(num)
+		 			
+		 			if (num>2){
+		 				all = all.substring(0, all.length - 1);
+		 			}
+		 				
+		 			console.log("["+all+"]");
+		 		return ("["+ all +"]");
+			 	});
+			 });
 		</script>
 	</body>
 </html>

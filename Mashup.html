@@ -2,14 +2,18 @@
 <html>
 	<head>
 		<title> Homepage </title>
+		<script language="javascript" type="text/javascript" src="js/flot/jquery.js"></script>
+    	<script language="javascript" type="text/javascript" src="js/flot/jquery.flot.js"></script>
 		<link rel="stylesheet" type="text/css" href="style/Nmain.css" />
 		<link rel="stylesheet" type="text/css" href="style/jquery-jvectormap.css" />	
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-		
+
 		<script language = "javascript" src="js/jquery.js"></script>
+    	<script language="javascript" type="text/javascript" src="js/flot/jquery.flot.js"></script>
+
 		<script language = "javascript" src="js/jquery-jvectormap.js"></script>
 		<script language = "javascript" src="js/jquery-mousewheel.js"></script>
-		
+
 		<script src="js/lib/jvectormap.js"></script>
 
 		<script src="js/lib/abstract-element.js"></script>
@@ -39,44 +43,25 @@
 
 		<script language = "javascript" src="js/jquery-jvectormap-world-mill-en.js"></script>
 		<script language = "javascript" src="js/javascript.js"></script>
+
 		<script language = "javascript">
 
 		$(document).ready(function() {
+
+		var AU= [[2009, 40479], [2010, 41102], [2011, 41318], [2012, 60000]];
+		
+		var NZ= [[2009, 27192], [2010, 27617], [2011, 27700], [2012, 50000]]; 
+
 	    
-
-		var gdp = {
-
-			AU: {
-				2009: 40479,
-				2010: 41102,
-				2011: 41318
-			},
-			NZ: {
-				2009: 27192,
-				2010: 27617,
-				2011: 27700
-			}
-		}
-
-
 	    var map = new jvm.WorldMap ({
 
 	    		container: $("div#worldmap"),  
 			 	map: 'world_mill_en',
 
 			 	onRegionOver: function(event, code) {
-			 		//console.log('region-over', code, map.getRegionName(code));)
-			 		
-			 		//console.log(gdp[code]);
-
-			 		$.each(gdp[code], function(key, value) {
-			 			console.log(key + " : " + value);	
-			 		});
-
-
+			 		console.log(code); 		
+					$.plot($("#placeholder"), [code]);
 			 	},
-
-
 			});	
 		});
 
@@ -218,6 +203,7 @@
 					
 
 						</div>
+						<div id="placeholder" style="width:600px;height:300px;"></div>
 					</div>
 				</div>
 			</div>

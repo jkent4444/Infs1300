@@ -104,3 +104,9 @@ body {margin:25px; font:12px Verdana, Arial, Helvetica}
 	top:280px;
 	left:50px;
 }
+
+#placeholder{
+	position:absolute;
+	top:0px;
+	left:700px;
+}
