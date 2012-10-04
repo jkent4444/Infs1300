@@ -47,8 +47,6 @@
 		<script language = "javascript">
 
 		$(document).ready(function() {
-
-		var AU= [[2009, 40479], [2010, 41102], [2011, 41318], [2012, 60000]];
 		
 		var NZ= [[2009, 27192], [2010, 27617], [2011, 27700], [2012, 50000]]; 
 
@@ -58,9 +56,12 @@
 	    		container: $("div#worldmap"),  
 			 	map: 'world_mill_en',
 
-			 	onRegionOver: function(event, code) {
-			 		console.log(code); 		
-					$.plot($("#placeholder"), [code]);
+			 	onRegionClick: function(event, code) {
+			 		var AU= [[2009, 40479], [2010, 41102], [2011, 41318], [2012, 60000]];
+			 		var codeval = code
+
+			 		console.log(codeval); 		
+					$.plot($("#placeholder"), [AU]);
 			 	},
 			});	
 		});
