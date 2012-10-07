@@ -43,34 +43,6 @@
 
 		<script language = "javascript" src="js/jquery-jvectormap-world-mill-en.js"></script>
 		<script language = "javascript" src="js/javascript.js"></script>
-
-		<script language = "javascript">
-
-		$(document).ready(function() {
-		
-		var NZ= [[2009, 27192], [2010, 27617], [2011, 27700], [2012, 50000]]; 
-
-	    
-	    var map = new jvm.WorldMap ({
-
-	    		container: $("div#worldmap"),  
-			 	map: 'world_mill_en',
-
-			 	onRegionClick: function(event, code) {
-			 		var AU= [[2009, 40479], [2010, 41102], [2011, 41318], [2012, 60000]];
-			 		var codeval = code
-
-			 		console.log(codeval); 		
-					$.plot($("#placeholder"), [AU]);
-			 	},
-			});	
-		});
-
-
-		
-  
-		</script>
-
 	</head>
 	<body>
 		<div id="wrapper">
@@ -200,12 +172,21 @@
 					</div>
 				
 					<div id="body">
-						<div id="worldmap" style="width:600px; height:400px;">
-					
-
-						</div>
-						<div id="placeholder" style="width:600px;height:300px;"></div>
+						<div id="worldmap" style="width:800px; height:600px;"></div>
 					</div>
+						<div id="graphstorage">
+							<div class="AccordionTitle">
+								<h2><b>Press a country to display a graph</b></h2>
+							</div>
+							<div id="Accordion1Content" class="AccordionContent">
+								<div id="placeholder" style="width:600px;height:300px;"></div>
+								<div id="mainbuttons">
+									<input type="button" value="GDP" onclick="plotafterintial(gdp_data)">
+									<input type="button" value="Medals" onclick="plotafterintial(medal_data)">
+									<input type="button" value="Population" onclick="plotafterintial(pop_data)">
+								</div>
+							</div>
+						</div>
 				</div>
 			</div>
 		</div>

@@ -86,7 +86,7 @@
 	padding-top:20px;
 }
 
-body {margin:25px; font:12px Verdana, Arial, Helvetica}
+body {font:12px Verdana, Arial, Helvetica}
 * {padding:0; margin:0}
 .dropdown {float:left; padding-right:5px}
 .dropdown dt {width:100px; border:2px solid #9ac1c9; padding:8px; font-weight:bold; cursor:pointer; background:url(images/header.gif)}
@@ -101,14 +101,63 @@ body {margin:25px; font:12px Verdana, Arial, Helvetica}
 /*Map*/
 #body{
 	position:absolute;
-	top:280px;
-	left:50px;
+	top:150px;
+	left:-300px;
 }
 
 #placeholder{
 	position:absolute;
-	top:0px;
-	left:700px;
+	top:60px;
+	left:80px;
+}
+#graphstorage{
+	position: relative;
+	left: 590px;
+	top:52px;
+	width: 700px;
+}
+
+.AccordionTitle, .AccordionContent, .AccordionContainer
+{
+position:relative;
+width:900px;
+}
+
+.AccordionTitle
+{
+height:20px;
+overflow:hidden;
+cursor:pointer;
+font-family:Arial;
+font-size:8pt;
+font-weight:bold;
+vertical-align:middle;
+text-align:center;
+display:table-cell;
+}
+
+.AccordionContent
+{
+height:0px;
+overflow:auto;
+display:none; 
+}
+
+.AccordionContainer
+{
+padding-top:30px;
+}
+
+#mainbuttons{
+	position:absolute;
+
+	height:22px;
+	width: 375px;
+	top:372px;
+	left:160px;
+}
+#mainbuttons input{
+	margin-left:50px;
 }
 
 /* startup page styling*/

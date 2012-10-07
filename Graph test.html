@@ -19,18 +19,26 @@
 
 		<script type="text/javascript">
 			$(function (){
-				var AU = [[2009, 40479], [2010, 41102], [2011, 41318], [2012, 60000]];
+				var gdp = {
+					AU: {
+						2009: 40479,
+						2010: 41102,
+						2011: 41318
+					},
+					NZ: {
+						2009: 27192,
+						2010: 27617,
+						2011: 27700
+					}
+				}
 
-			    // a null signifies separate line segments
-			    var NZ = [[2009, 27192], [2010, 27617], [2011, 27700], [2012, 50000]]; 
-			    $.plot($("#placeholder"), [AU,NZ]);
-			 });
 			var code= "AU"
 			var all = ''
+			var graph = bakemeacake(gdp)
 
-			$(function () {
+			function bakemeacake() {
 				num = 0
-				$.each(GDP[code], function(key, value) {
+				$.each(gdp[code], function(key, value) {
 		 			all = all + ('[' + key + "," + value + '],');
 		 			num = num +1;
 		 			console.log(num)
@@ -39,10 +47,13 @@
 		 				all = all.substring(0, all.length - 1);
 		 			}
 		 				
-		 			console.log("["+all+"]");
+		 		//console.log("["+all+"]");
 		 		return ("["+ all +"]");
 			 	});
-			 });
+			 	$.plot($("#placeholder") [graph])
+			 };
+			});
+
 		</script>
 	</body>
 </html>
