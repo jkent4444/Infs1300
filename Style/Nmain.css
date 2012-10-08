@@ -127,7 +127,6 @@ width:900px;
 {
 height:20px;
 overflow:hidden;
-cursor:pointer;
 font-family:Arial;
 font-size:8pt;
 font-weight:bold;
@@ -160,6 +159,13 @@ padding-top:30px;
 	margin-left:50px;
 }
 
+#buttonset1{
+
+}
+
+#buttonset2{
+	top:200px;
+}
 /* startup page styling*/
 
 #start_content{
