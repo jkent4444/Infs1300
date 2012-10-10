@@ -3,27 +3,22 @@
 #wrapper{
 	font-family:Verdana;
 	font-size:13px;
-	width:100%;
-	height:900px;
+	width:1920px;
+	height:970px;
 	position:absolute;
+	background-image:url(olympic-games-peace-1920x1200.jpg);
+	background-repeat:no-repeat;
 }
 
 
 #content {
-	background-color:rgb(246,245,239);
 	position:relative;
 	margin: 0 auto;
-	width:1700px;
+	width:1150px;
 	height:auto;
 	height:900px;
 }
 
-/* title positioning */
-#title{
-	position:absolute;
-	left:0px;
-	top:100px;
-}
 
 /* main image */
 
@@ -45,7 +40,7 @@
 	border-bottom:1px solid black;
 	border-left:1px solid black;
 	border-right:1px solid black;
-	width:640px;
+	width:265px;
 
 }
 
@@ -101,8 +96,9 @@ body {font:12px Verdana, Arial, Helvetica}
 /*Map*/
 #body{
 	position:absolute;
-	top:150px;
-	left:-300px;
+	top:190px;
+	left:-340px;
+	padding: 20px 20px 20px 20px;
 }
 
 #placeholder{
@@ -111,10 +107,11 @@ body {font:12px Verdana, Arial, Helvetica}
 	left:80px;
 }
 #graphstorage{
-	position: relative;
-	left: 590px;
-	top:52px;
-	width: 700px;
+	position: absolute;
+	left: 650px;
+	top:200px;
+	width: 780px;
+	background-color: white;
 }
 
 .AccordionTitle, .AccordionContent, .AccordionContainer
@@ -194,5 +191,5 @@ padding-top:30px;
 #title{
 	position: absolute;
 	top: 0px;
-	left: 300px;
+	left: 15px;
 }

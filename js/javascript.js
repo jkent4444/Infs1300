@@ -80,20 +80,22 @@ var gdp_data = {
 
 var pop_data = {
   AU: [[2009, 27192], [2010, 27623], [2011, 27700], [2012, 50000]],
-  RU: [[2009, 47192], [2010, 276137], [2011, 27700], [2012, 50000]],
+  RU: [[2009, 47192], [2010, 276137], [2011, 27700], [2012, 40000]],
 }
 
 var medal_data = {
   AU: [[2009, 47192], [2010, 276223], [2011, 277200], [2012, 520000]],
-  RU: [[2009, 472192], [2010, 27617], [2011, 27700], [2012, 50000]],
+  RU: [[2009, 472192], [2010, 27617], [2011, 27700], [2012, 600000]],
 }
 
 var selected_Countries =  []
 var current_catagory = gdp_data
+var catagory_array = [gdp_data, pop_data, medal_data]
+var map = null
 
 $(document).ready(function() {
   
-  var map = new jvm.WorldMap ({
+  map = new jvm.WorldMap ({
 
       container: $("div#worldmap"),  
     map: 'world_mill_en',
@@ -160,7 +162,7 @@ $(document).ready(function() {
 
 //accordion//
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-var ContentHeight = 700;
+var ContentHeight = 420;
 //content global height.
 var TimeToSlide = 250.0;
 //how fast the accordion opens and closes.
@@ -268,7 +270,7 @@ function averaging(){
       actual_value = 0
       country_str = null
       $.each(current_values[i], function(key, value){
-        current_countries = selected_Countries[i]
+        current_countries = map.getRegionName(selected_Countries[i])
         actual_value = actual_value + value[1]
         country_str = i + " "+ actual_value/current_values[i].length
         name_data = i + " " + current_countries
@@ -282,7 +284,7 @@ function averaging(){
         {
             data: average_value,
             color: '#409628',
-            label:'Mean',
+            label: "Mean" ,
             bars: {show: true, align:'center', barWidth:0.8}
         }    
     ];
@@ -292,3 +294,84 @@ function averaging(){
   };
   $.plot($("#placeholder"),  data, options );  
   };
+var values = []
+function gather_values(country, catagory){
+  if (catagory[country] != null){
+    values.push(catagory[country].slice(-1)[0]);
+    console.log(values)
+  }
+  else{
+    alert("no value for this selected " + country);
+  }
+  
+};
+
+function mash_all(){
+  Country_dataset = []
+  var country_val = null
+  var catagory_num = 0
+  var medals_per_pop = 0
+  var gdp_per_pop = 0
+  var mashval = []
+  for (i=0;i<selected_Countries.length;i++) {
+    values = []
+    for (x=0;x<3;x++){
+      console.log(selected_Countries[i]);
+      if (x == 0){
+        gather_values(selected_Countries[i], catagory_array[x]);
+      }
+      if (x == 1){
+        gather_values(selected_Countries[i], catagory_array[x]);
+      }
+      if (x == 2){
+        gather_values(selected_Countries[i], catagory_array[x]);
+      }
+      if (values[0] != null && values[1] != null && values[2] != null){
+        country_val = i + " " + values[0].slice(-1)[0] / values[1].slice(-1)[0] * values[2].slice(-1)[0] / values[1].slice(-1)[0]
+        country_val = country_val.split(" ");
+        name_data = i + " " + map.getRegionName(selected_Countries[i])
+        name_data = name_data.split(" ");
+        mashval.push(country_val);
+        Country_dataset.push(name_data);
+          
+      }
+    }
+    console.log(mashval); 
+    console.log(Country_dataset);
+  }
+  var data = [
+    {
+      data: mashval,
+      color:  "#FF0000",
+      label: "Mean" ,
+      bars: {show: true, align:'center', barWidth:0.8}
+    }    
+  ];
+
+  var options = {
+    xaxis: { ticks: Country_dataset}
+  };
+  $.plot($("#placeholder"),  data, options );  
+};
+  //seperate countries
+  //loop through all countries to sort it through and call function gathervalues()
+  //gather all information on that country by function gathervalues() (return country, pop-values, gdp-values, medal-values)
+  //find a equation that creates a co-effecient of how good the country is in accordance to medals. (this will compare pop,gdp,medals)
+  //high pop,gdp, low medals is the lowest of the equation
+  //low pop,gdp, high medals is the highest of the equation
+  //this is because high pop increases the liklyhood of being a gifted athlete.
+  //high gdp means there could be more funding/ facilities for training meaning better players to countries that have none.
+  //high medal count is good
+  //low medal count is bad
+  //use same graph type as averaging
+  //[AU,gdp,pop,medal]
+  //[[AU,#]]
+  
+
+  //gdp 46000 pop 24000000 medal 143
+  //gdp 50000 pop 1300000000 medal 250
+  //gdp 20000 pop 20000000000 medal 350
+  //gdp 10000 pop 1000000 medal 400
+  //score 100%
+  //medals/(popxgdp)
+
