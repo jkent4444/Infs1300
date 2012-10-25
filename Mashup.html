@@ -49,41 +49,93 @@
 			<div id="content">
 				<div id="title">
 						<div id="t_image">
-							<h1> TITLE </h1>
-						</div>
-						<div id="t_menu">
-							<ul>
-								<li><a href="Home.html">Home</a></li>
-								<li><a class="current">Mashup</a></li>
-							</ul>
+							<h1> Olympic Mash-up </h1>
 						</div>
 				</div>
+		<div id="toptitle">
+		</div>	
 		<div id="body">
-			<div id="worldmap" style="width:957px; height:630px;"></div>
+			<div id="worldmap" style="width:900px; height:630px;"></div>
 		</div>
-			<div id="graphstorage">
-				<div class="AccordionTitle">
-					<h2><b>Press a country to display a graph</b></h2>
+		<div id="graphstorage">
+			<div id="change">
+			</div>
+			<div id="graph_over">
+			</div>
+			<div id="info_text">
+			</div>
+			<div >
+				<div id="placeholder" style="width:600px;height:300px;"></div>
+				<div id="mainbuttons">
+					<input type="button" value="GDP" onclick="plotafterintial(gdp_data)">
+					<input type="button" value="Medals" onclick="plotafterintial(medal_data)">
+					<input type="button" value="Population" onclick="plotafterintial(pop_data)">
 				</div>
-				<div id="Accordion1Content" class="AccordionContent">
-					<div id="placeholder" style="width:600px;height:300px;"></div>
-					<div id="mainbuttons">
-						<input type="button" value="GDP" onclick="plotafterintial(gdp_data)">
-						<input type="button" value="Medals" onclick="plotafterintial(medal_data)">
-						<input type="button" value="Population" onclick="plotafterintial(pop_data)">
-					</div>
-					<div id="buttonset1">
-						<input type="button" value="Clear last" onclick="clear_last()">
-						<input type="button" value="Clear All" onclick="clear_all()">
-					</div>
-					<div id="buttonset2">
-						<input type="button" value="Mean" onclick="averaging()">
-						<input type="button" value="All" onclick=" mash_all()">
-					</div>
+				<div id="buttonset1">
+					<input type="button" value="Clear last" onclick="clear_last()">
+					<input type="button" value="Clear All" onclick="clear_all()">
+				</div>
+				<div id="buttonset2">
+					<input type="button" value="Mean" onclick="averaging()">
+					<input type="button" value="GDP/POP" onclick=" GDP_POP()">
+					<input type="button" value="Medals/POP" onclick=" MEDAL_POP()">
+					<input type="button" value="GDP/MEDAL" onclick=" GDP_MEDAL()">
+				</div>
+				<div id="infobox">
+				<div id="AU">
+					<h3 class = "infotitle"> Australian statistics </h3>
+					<p> <b>sporting institutes :</b></P>
+					<ul type="square">
+						<li>Australian Institute of Sport</li>
+						<li >Olympic Winter Institute of Australia</li>
+					</ul>
+					<p><b> olympic fundings :</b></P>
+					<ul type="square">
+					  <li>$17 million Australian Institute of Sport swimming pool</li>
+					  <li >$16.7 million through direct federal grants for each of the 13 gold medals won in Beijing .</li>
+					</ul>
+				</div>
+				<div id="RU">
+					<h3 class = "infotitle"> Russian statistics </h3>
+					<p> <b>sporting institutes :</b></P>
+					<ul type="square">
+						<li>Russian International Olympic University</li>
+					</ul>
+					<p><b> olympic fundings:</b></P>
+					<ul type="square">
+						<li>$30 billion dollars is spent on increasing infastructure at sochi for the winter olympics of 2014.</li>
+					  	<li >Gold medal winners in Russia get a pay out of $135,000 dollars. </li>
+					</ul>
+				</div>
+
+				<div id="CN">
+					<h3 class = "infotitle"> Chinese statistics </h3>
+					<p> <b>sporting institutes :</b></P>
+					<ul type="square">
+						<li>Beijing sport university</li>
+					  	<li >Shanghai University of sport</li>
+					</ul>
+					<p><b> olympic fundings :</b></P>
+					<ul type="square">
+						<li>The Birds nest stadium cost USD $478 million</li>
+					  	<li >200,000 Chinese children are being funded to train at elite sport academy</li>
+					</ul>
+				</div>
+
+				<div id="US" >
+					<h3 class = "infotitle"> No information </h3>
+				</div>
 				</div>
 			</div>
-				
-			
+		</div>
+		<div id="footer">
+			<div id="contactinfo">
+				<p>Contact us</p>
+				<p>Phone number: 0424029334</p>
+				<p>Fax: (07)22145564 </p>
+				<p>location: 42 wallably way, Sydney</p>
+			</div>
+		</div>		
 		</div>
 	</body>
 </html>
